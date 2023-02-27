@@ -12,10 +12,10 @@
         android:theme="@style/Theme.MacroReplier"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityConfigReplier"
+            android:name=".ActivityConfigReplierGeneric"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="Send message">
+            android:label="@string/activity_generic_name">
             <intent-filter>
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>

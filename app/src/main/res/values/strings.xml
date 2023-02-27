@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Macro Replier</string>
+    <string name="activity_generic_name">Send message (generic)</string>
+    <string name="activity_signal_name">Send Signal message</string>
 </resources>

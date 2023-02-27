@@ -16,7 +16,7 @@ import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResultSucess
 import rikka.shizuku.Shizuku
 import rikka.sui.Sui
 
-class ActivityConfigReplier : Activity(), TaskerPluginConfigNoInput {
+class ActivityConfigReplierGeneric : Activity(), TaskerPluginConfigNoInput {
     override val context get() = applicationContext
     private val taskerHelper by lazy { ReplierHelper(this) }
     override fun onCreate(savedInstanceState: Bundle?) {

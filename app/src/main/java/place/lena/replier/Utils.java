@@ -1,5 +1,6 @@
 package place.lena.replier;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,9 +12,9 @@ import rikka.shizuku.ShizukuProvider;
 import rikka.sui.Sui;
 
 public class Utils {
-
-    public static final int NOT_ALIVE = -2;
-    public static final int UNSUPPORTED_VERSION = -1;
+    public static final int NOT_ALIVE = -3;
+    public static final int UNSUPPORTED_VERSION = -2;
+    public static final int INSUFFICIENT_PERMISSIONS = -1;
     public static final int HAS_PERMISSION = 2;
     public static final int DENIED_INDEFINITELY = 0;
     public static final int REQUESTED = 1;
@@ -24,6 +25,10 @@ public class Utils {
         }
         if (Shizuku.isPreV11()) {
             return UNSUPPORTED_VERSION;
+        }
+
+        if (Shizuku.checkRemotePermission(Manifest.permission.SEND_RESPOND_VIA_MESSAGE) != PackageManager.PERMISSION_GRANTED) {
+            return INSUFFICIENT_PERMISSIONS;
         }
 
         if (Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED) {
@@ -46,6 +51,11 @@ public class Utils {
             case NOT_ALIVE:
             {
                 Toast.makeText(context, (CharSequence) "Shizuku isn't running.", Toast.LENGTH_LONG).show();
+                break;
+            }
+            case INSUFFICIENT_PERMISSIONS:
+            {
+                Toast.makeText(context, (CharSequence) "Shizuku doesn't have the necessary permissions to perform this action.\nUsually what this means is that this will only work under root.", Toast.LENGTH_LONG).show();
                 break;
             }
             case UNSUPPORTED_VERSION:

@@ -2,4 +2,8 @@
     <string name="app_name">Macro Replier</string>
     <string name="activity_generic_name">Send message (generic)</string>
     <string name="activity_signal_name">Send Signal message</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="settings_label">Settings</string>
+    <string name="about_label">About</string>
 </resources>
